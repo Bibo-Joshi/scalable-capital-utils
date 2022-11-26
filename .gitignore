@@ -1,0 +1,16 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Unit test / coverage reports
+.pytest_cache
+.mypy_cache
+
+# Intellij
+.idea/
+
+# virtual env
+venv*
+
+# html_page
+html_page/
