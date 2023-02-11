@@ -31,7 +31,7 @@ class Transaction(NamedTuple):
 def _get_table_root(soup: BeautifulSoup) -> Tag:
     table_root = None
     for element in soup.find_all(name="div", class_="MuiGrid-root", recursive=True):
-        if element.find_all(name="div", class_="jss445"):
+        if element.find_all(name="div", class_="jss373"):
             for elemen in element.find_all(
                 name="div", class_="infinite-scroll-component__outerdiv"
             ):
@@ -61,20 +61,20 @@ def parse_html_transactions(file_path: str | Path) -> Sequence[Transaction]:
     current_date: datetime.date | None = None
     transactions = []
     for child in _get_table_root(soup).children:
-        if "jss448" in child.attrs["class"]:
+        if "jss376" in child.attrs["class"]:
             current_date = extract_date(next(child.children))
-        elif "jss449" in child.attrs["class"]:
-            type_tags = child.find_all(name="div", class_="jss455", role="listitem")
+        elif "jss378" in child.attrs["class"]:
+            type_tags = child.find_all(name="div", class_="jss383", role="listitem")
             assert len(type_tags) == 1, "Unable to parse table row"
             type_ = type_tags[0].text
 
             description_tags = child.find_all(
-                name="div", class_="jss456", role=LINK_OR_LIST_ITEM_PATTERN
+                name="div", class_="jss384", role=LINK_OR_LIST_ITEM_PATTERN
             )
             assert len(description_tags) == 1, "Unable to parse table row"
             description = description_tags[0].text
 
-            amount_tags = child.find_all(name="div", class_="jss458", role="listitem")
+            amount_tags = child.find_all(name="div", class_="jss386", role="listitem")
             assert len(amount_tags) == 1, "Unable to parse table row"
             if not amount_tags[0].text:
                 amount = None
@@ -83,7 +83,7 @@ def parse_html_transactions(file_path: str | Path) -> Sequence[Transaction]:
                     convert_number_separators(amount_tags[0].text.replace(" Stk.", "").strip())
                 )
 
-            value_tags = child.find_all(name="div", class_="jss459", role="listitem")
+            value_tags = child.find_all(name="div", class_="jss387", role="listitem")
             assert len(value_tags) == 1, "Unable to parse table row"
             value = float(convert_number_separators(value_tags[0].text.replace("€", "").strip()))
 
