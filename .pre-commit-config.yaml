@@ -9,7 +9,7 @@ repos:
         - --diff
         - --check
 -   repo: https://github.com/PyCQA/flake8
-    rev: 6.0.0
+    rev: 6.1.0
     hooks:
     -   id: flake8
 -   repo: https://github.com/PyCQA/pylint
@@ -36,7 +36,7 @@ repos:
           - python-dateutil~=2.8.2
           - types-python-dateutil~=2.8.2
 -   repo: https://github.com/asottile/pyupgrade
-    rev: v3.9.0
+    rev: v3.10.1
     hooks:
     -   id: pyupgrade
         args:
