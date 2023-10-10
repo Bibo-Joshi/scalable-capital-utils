@@ -13,7 +13,7 @@ repos:
     hooks:
     -   id: flake8
 -   repo: https://github.com/PyCQA/pylint
-    rev: v3.0.0
+    rev: v3.0.1
     hooks:
     -   id: pylint
         args:
@@ -36,7 +36,7 @@ repos:
           - python-dateutil~=2.8.2
           - types-python-dateutil~=2.8.2
 -   repo: https://github.com/asottile/pyupgrade
-    rev: v3.14.0
+    rev: v3.15.0
     hooks:
     -   id: pyupgrade
         args:
