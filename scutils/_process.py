@@ -1,4 +1,5 @@
 """This module contains functionality to process the transactions parsed from ScalableCapital."""
+
 from collections.abc import Mapping, Sequence
 
 from scutils._parse import Transaction
