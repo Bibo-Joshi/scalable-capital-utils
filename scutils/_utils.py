@@ -1,4 +1,5 @@
 """Utility functionality used by the scutils package."""
+
 import datetime
 import re
 
